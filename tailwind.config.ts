@@ -1,6 +1,10 @@
 import type { Config } from "tailwindcss";
 
 export default {
+	env: {
+		TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
+		TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
+	},
 	darkMode: ["class"],  // Enable dark mode using a class (default is 'media')
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,7 +16,7 @@ export default {
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				mainColor :"#feb901",
+				mainColor: "#feb901",
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',

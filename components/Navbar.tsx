@@ -75,7 +75,7 @@ const Navbar = () => {
                 <div className="main-container w-full flex flex-col lg:flex-row items-center text-4xl justify-between gap-6 py-4 lg:py-8 md:py-10">
                     <div className="w-full bg-white p-1 sm:p-2 rounded-full flex items-center gap-10 justify-between">
                         <div className="flex items-center gap-2 font-cursive">
-                            <Image src="/images/profile.jpg" alt="logo" width={68} height={68} className="w-48 lg:w-[68px] h-[68px] rounded-full object-cover" loading="lazy" />
+                            <Image src="/images/User-Avatar.png" alt="logo" width={75} height={75} className="w-48 lg:w-[75px] h-[75px] rounded-full object-cover" loading="lazy" />
                             <h1 className="text-3xl font-medium">Abhishek <span className="text-3xl font-semibold">Rohtagi</span> </h1>
                         </div>
 
