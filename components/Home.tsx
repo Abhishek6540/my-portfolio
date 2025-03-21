@@ -14,10 +14,12 @@ const skillsData: skillsProps[] = [
   { id: 5, name: "JavaScript", image: "/images/js.svg" },
   { id: 6, name: "GitHub", image: "/images/github.png" },
   { id: 7, name: "GraphQL", image: "/images/graphql.svg" },
-  { id: 8, name: "Redux Toolkit", image: "/images/redux-toolkit.png" },
+  { id: 8, name: "Redux", image: "/images/redux-toolkit.png" },
+  // {
+  //   id: 9, name: "Typescript", image: "/images/typescript.png"
+  // },
 ];
 const Home = () => {
-  // const skills = [...skillsData, ...skillsData];
   return (
     <>
       <div className="w-full">
@@ -90,26 +92,31 @@ const Home = () => {
                 Hire Me
               </button>
             </div>
-            <div className="scroll-animation main-container overflow-hidden mt-10">
-              {skillsData.map((skill, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center gap-2 rounded-full bg-white cursor-pointer min-w-[150px] md:min-w-[180px] h-auto w-auto"
-                >
-                  <Image
-                    alt={skill.name}
-                    loading="lazy"
-                    width={46}
-                    height={46}
-                    className="w-7 sm:w-10 lg:w-11 xl:w-auto object-contain transition duration-300 ease-in-out"
-                    src={skill.image}
-                  />
-                  <p className="text-black text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium">
-                    {skill.name}
-                  </p>
+            <div className="skill-scroller mt-10">
+              <div className="scroller-track">
+                <div className="scroller-content">
+                  {[...skillsData, ...skillsData].map((skill, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center gap-2 rounded-full bg-white cursor-pointer min-w-[150px] md:min-w-[180px] h-auto w-auto"
+                    >
+                      <Image
+                        alt={skill.name}
+                        loading="lazy"
+                        width={46}
+                        height={46}
+                        className="w-7 sm:w-10 lg:w-11 xl:w-auto object-contain transition duration-300 ease-in-out"
+                        src={skill.image}
+                      />
+                      <p className="text-black text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium">
+                        {skill.name}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
+
           </div>
         </div>
       </div>

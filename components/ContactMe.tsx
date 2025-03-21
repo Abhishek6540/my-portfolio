@@ -89,7 +89,7 @@ const ContactMe = () => {
     try {
       const result = await sendMessage(data);
       console.log("Success:", result);
-      reset(); // Clears the form after submission
+      reset();
     } catch (error) {
       console.error("Error submitting contact form:", error);
     }
