@@ -26,12 +26,12 @@ jobs:
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           publish-dir: './dist'  # Change to your build directory
           production-branch: main
           deploy-message: "Deployed via GitHub Actions from ${{ runner.os }}"
           enable-pull-request-comment: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           alias: ${{ github.ref_name }}  # Creates a preview deployment for development
