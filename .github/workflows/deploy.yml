@@ -1,4 +1,4 @@
-name: Deploy to Netlify
+name: Deploy to Netlify (Windows)
 
 on:
   push:
@@ -8,11 +8,7 @@ on:
 
 jobs:
   deploy:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]  # Runs on all OS
-
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest  # Runs on Windows
 
     steps:
       - name: Checkout Code
@@ -31,8 +27,9 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          if [ "$GITHUB_REF_NAME" == "main" ]; then
+          if ($env:GITHUB_REF_NAME -eq "main") {
             netlify deploy --prod --dir=.next/out
-          else
-            netlify deploy --alias=${{ github.ref_name }} --dir=.next/out
-          fi
+          } else {
+            netlify deploy --alias=$env:GITHUB_REF_NAME --dir=.next/out
+          }
+        shell: pwsh
