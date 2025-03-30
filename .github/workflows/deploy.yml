@@ -1,0 +1,36 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main  # Adjust if needed
+
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install  # Adjust if using yarn or pnpm
+
+      - name: Build Project
+        run: npm run build  # Adjust if your build command is different
+
+      - name: Deploy to Netlify (Only on Linux)
+        if: runner.os == 'Linux'  # Deploy only from Linux for consistency
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: './dist'  # Change to your build directory
+          production-branch: main
+          deploy-message: "Deployed via GitHub Actions"
+          enable-pull-request-comment: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
