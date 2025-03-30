@@ -75,19 +75,19 @@ const Navbar = () => {
                 <div className="main-container w-full flex flex-col lg:flex-row items-center text-4xl justify-between gap-6 py-4 lg:py-8 md:py-10">
                     <div className="w-full bg-white p-1 sm:p-2 rounded-full flex items-center gap-10 justify-between">
                         <div className="flex items-center gap-2 font-cursive">
-                            <Image src="/images/User-Avatar.png" alt="logo" width={75} height={75} className="w-48 lg:w-[75px] h-[75px] rounded-full object-cover" loading="lazy" />
-                            <h1 className="text-3xl font-medium">Abhishek <span className="text-3xl font-semibold">Rohtagi</span> </h1>
+                            <Image src="/images/User-Avatar.png" alt="logo" width={75} height={75} className="w-[50px] lg:w-[75px] md:w-[65px] md:h-[65px] sm:w-[50px] sm:h-[50px] rounded-full object-cover" loading="lazy" />
+                            <h1 className="text-3xl font-medium lg:block md:hidden sm:hidden hidden">Abhishek <span className="text-3xl font-semibold">Rohtagi</span> </h1>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <div className="aspect-square p-3 sm:p-4 cursor-pointer rounded-full bg-[#000000]">
+                            {/* <div className="aspect-square p-3 sm:p-4 cursor-pointer rounded-full bg-[#000000]">
                                 <Image src="/images/dark.svg" alt="logo" width={42} height={42} className="w-6 sm:w-6 lg:w-auto" />
-                            </div>
+                            </div> */}
 
                             <div className="relative group">
                                 <motion.div
                                     whileTap={{ scale: 0.97 }}
-                                    className="flex items-center gap-6 text-white bg-black text-sm md:text-base xl:text-2xl lg:text-lg sm:pl-6 rounded-full h-full cursor-pointer"
+                                    className="flex items-center gap-6 text-white bg-black text-sm md:text-base xl:text-2xl lg:text-lg sm:pl-6 lg:pl-6 pl-3 rounded-full h-full cursor-pointer"
                                     onClick={toggleMenu}
                                 >
                                     <p>Menu</p>
