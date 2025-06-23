@@ -22,8 +22,7 @@ export async function sendMessage(formData) {
 ✉️ *Email:* ${email}  
 📞 *Phone:* ${phone}  
 📝 *Subject:* ${subject}  
-💬 *Message:* ${message}  
-  `;  
+💬 *Message:* ${message}`;  
 
   try {
     const response = await axios.post(
